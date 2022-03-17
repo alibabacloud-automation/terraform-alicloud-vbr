@@ -1,11 +1,9 @@
 terraform-alicloud-vbr
 ======================
 
-English | [简体中文](https://github.com/terraform-alicloud-modules/terraform-alicloud-vbr/blob/master/README-CN.md)
+Terraform模块用于在阿里云上添加新的边界路由器,BGP网络,BGP组,BGP邻居。
 
-Terraform module is used to add new express connect virtual border routers, BGP network, group, peer on Alibaba Cloud
-
-These types of resources are supported:
+支持以下类型的资源：
 
 * [alicloud_vpc_bgp_group](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vpc_bgp_group)
 * [alicloud_vpc_bgp_peer](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vpc_bgp_peer)
@@ -13,9 +11,10 @@ These types of resources are supported:
 * [alicloud_vpc_bgp_network](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vpc_bgp_network)
 
 
-## Usage
+## 用法
 
-Create a express connect virtual border routers, BGP network, group, peer.
+创建一个BGP网络,边界路由器,BGP组,BGP邻居.
+
 ```hcl
 module "example" {
   source                 = "terraform-alicloud-modules/vbr/alicloud"
@@ -32,26 +31,28 @@ module "example" {
 }
 ```
 
-## Examples
 
-* [complete example](https://github.com/terraform-alicloud-modules/terraform-alicloud-vbr/tree/master/examples/complete)
+## 示例
 
-## Terraform versions
+* [VBR 完整示例](https://github.com/terraform-alicloud-modules/terraform-alicloud-vbr/tree/master/examples/complete)
+
+
+## Terraform 版本
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.0 |
 | <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | >= 1.67.0 |
 
-Authors
+作者
 -------
 Created and maintained by Alibaba Cloud Terraform Team(terraform@alibabacloud.com)
 
-License
+许可
 ----
 Apache 2 Licensed. See LICENSE for full details.
 
-Reference
+参考
 ---------
 * [Terraform-Provider-Alicloud Github](https://github.com/terraform-providers/terraform-provider-alicloud)
 * [Terraform-Provider-Alicloud Release](https://releases.hashicorp.com/terraform-provider-alicloud/)
