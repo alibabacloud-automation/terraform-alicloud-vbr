@@ -1,10 +1,10 @@
 locals {
-  router_id    = var.router_id != "" ? var.router_id : concat(alicloud_express_connect_virtual_border_router.default.*.id, [""])[0]
-  bgp_group_id = var.bgp_group_id != "" ? var.bgp_group_id : concat(alicloud_vpc_bgp_group.default.*.id, [""])[0]
+  router_id    = var.router_id != "" ? var.router_id : concat(alicloud_express_connect_virtual_border_router.vbr.*.id, [""])[0]
+  bgp_group_id = var.bgp_group_id != "" ? var.bgp_group_id : concat(alicloud_vpc_bgp_group.bgp_group.*.id, [""])[0]
 }
 
-resource "alicloud_express_connect_virtual_border_router" "default" {
-  count                           = var.create ? 1 : 0
+resource "alicloud_express_connect_virtual_border_router" "vbr" {
+  count                           = var.create_vbr ? 1 : 0
   associated_physical_connections = var.associated_physical_connections
   bandwidth                       = var.bandwidth
   circuit_code                    = var.circuit_code
@@ -25,8 +25,8 @@ resource "alicloud_express_connect_virtual_border_router" "default" {
   vlan_id                         = var.vlan_id
 }
 
-resource "alicloud_vpc_bgp_group" "default" {
-  count          = var.create ? 1 : 0
+resource "alicloud_vpc_bgp_group" "bgp_group" {
+  count          = var.create_bgp_group ? 1 : 0
   auth_key       = var.auth_key
   bgp_group_name = var.bgp_group_name
   description    = var.description
@@ -36,8 +36,8 @@ resource "alicloud_vpc_bgp_group" "default" {
   router_id      = local.router_id
 }
 
-resource "alicloud_vpc_bgp_peer" "default" {
-  count           = var.create ? 1 : 0
+resource "alicloud_vpc_bgp_peer" "bgp_peer" {
+  count           = var.create_bgp_peer ? 1 : 0
   bfd_multi_hop   = var.bfd_multi_hop
   bgp_group_id    = local.bgp_group_id
   enable_bfd      = var.enable_bfd
@@ -45,8 +45,8 @@ resource "alicloud_vpc_bgp_peer" "default" {
   peer_ip_address = var.peer_ip_address
 }
 
-resource "alicloud_vpc_bgp_network" "default" {
-  count          = var.create ? 1 : 0
+resource "alicloud_vpc_bgp_network" "bgp_network" {
+  count          = var.create_bgp_network ? 1 : 0
   dst_cidr_block = var.dst_cidr_block
   router_id      = local.router_id
 }

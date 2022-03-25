@@ -1,13 +1,32 @@
-variable "create" {
+variable "create_vbr" {
   type        = bool
   description = "Whether to create the specified resource"
-  default     = true
+  default     = false
 }
+
+variable "create_bgp_group" {
+  type        = bool
+  description = "Whether to create the specified resource"
+  default     = false
+}
+
+variable "create_bgp_peer" {
+  type        = bool
+  description = "Whether to create the specified resource"
+  default     = false
+}
+
+variable "create_bgp_network" {
+  type        = bool
+  description = "Whether to create the specified resource"
+  default     = false
+}
+
 #alicloud_vpc_bgp_group
 variable "associated_physical_connections" {
   type        = string
   description = "The associated physical connections."
-  default     = ""
+  default     = null
 }
 variable "bandwidth" {
   type        = number
@@ -18,13 +37,13 @@ variable "bandwidth" {
 variable "circuit_code" {
   type        = string
   description = "Operators for physical connection circuit provided coding."
-  default     = ""
+  default     = null
 }
 
 variable "description" {
   type        = string
   description = "The description of VBR. Length is from 2 to 256 characters, must start with a letter or the Chinese at the beginning, but not at the http:// Or https:// at the beginning."
-  default     = ""
+  default     = null
 }
 
 variable "detect_multiplier" {
@@ -41,12 +60,12 @@ variable "enable_ipv6" {
 variable "local_gateway_ip" {
   type        = string
   description = "Alibaba Cloud-Connected IPv4 address."
-  default     = ""
+  default     = null
 }
 variable "local_ipv6_gateway_ip" {
   type        = string
   description = "Alibaba Cloud-Connected IPv6 Address."
-  default     = ""
+  default     = null
 }
 
 variable "min_rx_interval" {
@@ -64,37 +83,37 @@ variable "min_tx_interval" {
 variable "peer_gateway_ip" {
   type        = string
   description = "The Client-Side Interconnection IPv4 Address."
-  default     = ""
+  default     = null
 }
 
 variable "peer_ipv6_gateway_ip" {
   type        = string
   description = "The Client-Side Interconnection IPv6 Address."
-  default     = ""
+  default     = null
 }
 
 variable "peering_ipv6_subnet_mask" {
   type        = string
   description = "Alibaba Cloud-Connected IPv6 with Client-Side Interconnection IPv6 of Subnet Mask."
-  default     = ""
+  default     = null
 }
 
 variable "peering_subnet_mask" {
   type        = string
   description = "Alibaba Cloud-Connected IPv4 and Client-Side Interconnection IPv4 of Subnet Mask."
-  default     = ""
+  default     = null
 }
 
 variable "physical_connection_id" {
   type        = string
   description = "The ID of the Physical Connection to Which the ID."
-  default     = ""
+  default     = null
 }
 
 variable "vbr_owner_id" {
   type        = string
   description = "The vbr owner id."
-  default     = ""
+  default     = null
 }
 
 variable "vlan_id" {
@@ -107,13 +126,13 @@ variable "vlan_id" {
 variable "auth_key" {
   type        = string
   description = "The authentication key of the BGP group."
-  default     = ""
+  default     = null
 }
 
 variable "bgp_group_name" {
   type        = string
   description = "The name of the BGP group. The name must be 2 to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter but cannot start with http:// or https://."
-  default     = ""
+  default     = null
 }
 
 variable "is_fake_asn" {
@@ -144,31 +163,31 @@ variable "router_id" {
 variable "virtual_border_router_name" {
   type        = string
   description = "The name of VBR. Length is from 2 to 128 characters, must start with a letter or the Chinese at the beginning can contain numbers, the underscore character (_) and dash (-). But do not start with http:// or https:// at the beginning."
-  default     = ""
+  default     = null
 }
 
 variable "bfd_multi_hop" {
   type        = number
   description = "The BFD hop count. Valid values: 1 to 255. NOTE: The attribute is valid when the attribute enable_bfd is true. The parameter specifies the maximum number of network devices that a packet can traverse from the source to the destination. You can set a proper value based on the factors that affect the physical connection."
-  default     = 1
+  default     = null
 }
 
 variable "enable_bfd" {
   type        = bool
   description = "Specifies whether to enable the Bidirectional Forwarding Detection (BFD) feature."
-  default     = true
+  default     = null
 }
 
 variable "ip_version" {
   type        = string
   description = "The IP version."
-  default     = ""
+  default     = null
 }
 
 variable "peer_ip_address" {
   type        = string
   description = "The IP address of the BGP peer."
-  default     = ""
+  default     = null
 }
 
 variable "bgp_group_id" {
@@ -181,7 +200,7 @@ variable "bgp_group_id" {
 variable "dst_cidr_block" {
   type        = string
   description = "The CIDR block of the virtual private cloud (VPC) or vSwitch that you want to connect to a data center."
-  default     = ""
+  default     = null
 }
 
 
