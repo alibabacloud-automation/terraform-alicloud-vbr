@@ -18,16 +18,18 @@ Terraform模块用于在阿里云上添加新的边界路由器,BGP网络,BGP组
 ```hcl
 module "example" {
   source                 = "terraform-alicloud-modules/vbr/alicloud"
+  create_vbr             = true
   local_gateway_ip       = "your_local_gateway_ip"
   peer_gateway_ip        = "your_peer_gateway_ip"
   peering_subnet_mask    = "your_peering_subnet_mask"
   physical_connection_id = "your_physical_connection_id"
   vlan_id                = "your_vlan_id"
+  create_bgp_group       = true
+  peer_asn               = "your_peer_asn"
+  router_id              = "your_router_id"
 
-  peer_asn  = "your_peer_asn"
-  router_id = "your_router_id"
-
-  dst_cidr_block = "your_dst_cidr_block"
+  create_bgp_peer = true
+  dst_cidr_block  = "your_dst_cidr_block"
 }
 ```
 
