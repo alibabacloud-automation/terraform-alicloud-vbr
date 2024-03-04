@@ -1,7 +1,10 @@
+provider "alicloud" {
+  region = "cn-hangzhou"
+}
+
 data "alicloud_express_connect_physical_connections" "nameRegex" {
   name_regex = "^preserved-NODELETING"
 }
-
 
 module "vbr" {
   source = "../.."
