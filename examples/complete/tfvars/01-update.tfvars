@@ -1,5 +1,4 @@
 #alicloud_express_connect_virtual_border_router
-vlan_id                    = 290
 local_gateway_ip           = "10.0.0.3"
 peer_gateway_ip            = "10.0.0.4"
 peering_subnet_mask        = "255.255.255.0"
