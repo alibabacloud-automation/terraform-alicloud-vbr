@@ -13,7 +13,14 @@ Terraform模块用于在阿里云上添加新的边界路由器,BGP网络,BGP组
 
 ## 用法
 
+<div style="display: block;margin-bottom: 40px;"><div class="oics-button" style="float: right;position: absolute;margin-bottom: 10px;">
+  <a href="https://api.aliyun.com/terraform?source=Module&activeTab=document&sourcePath=terraform-alicloud-modules%3A%3Avbr&spm=docs.m.terraform-alicloud-modules.vbr" target="_blank">
+    <img alt="Open in AliCloud" src="https://img.alicdn.com/imgextra/i1/O1CN01hjjqXv1uYUlY56FyX_!!6000000006049-55-tps-254-36.svg" style="max-height: 44px; max-width: 100%;">
+  </a>
+</div></div>
+
 创建一个BGP网络,边界路由器,BGP组,BGP邻居.
+
 
 ```hcl
 module "example" {
